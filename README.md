@@ -31,6 +31,18 @@ llm-translation-agents-pipeline/
 
 ---
 
+## 📖 Experimental Setup & Methodology
+
+For detailed information about how the experiments were conducted, including:
+- Agent invocation process
+- Data collection workflow
+- Embeddings calculation steps
+- Reproducibility guide
+
+👉 **See**: [📋 METHODOLOGY.md](METHODOLOGY.md)
+
+---
+
 ## 🔧 Agent Specifications
 
 ### Agent A: English to French

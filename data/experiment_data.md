@@ -2,6 +2,7 @@
 
 ## 🔗 Quick Navigation
 - 🏠 [Back to README](../README.md)
+- 📖 [Experimental Methodology](../METHODOLOGY.md)
 - 📄 [Agent A Documentation](../docs/agent_a_english_to_french.md)
 - 📄 [Agent B Documentation](../docs/agent_b_french_to_hebrew.md)
 - 📄 [Agent C Documentation](../docs/agent_c_hebrew_to_english.md)
