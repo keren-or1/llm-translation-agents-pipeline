@@ -23,8 +23,7 @@ llm-translation-agents-pipeline/
 │   ├── experiment_data.md                 # Detailed experimental data and results
 │   └── experiment_results.json            # Results in machine-readable format
 ├── src/
-│   ├── embeddings_calculator.py           # Initial embeddings calculator module
-│   └── calculate_results.py               # Comprehensive results calculator script
+│   └── calculate_results.py               # Results calculator with embeddings and analysis
 ├── screenshots/
 │   └── translation_distance_graph.png     # Visualization of results
 └── README.md                              # This file
@@ -174,13 +173,6 @@ python3 src/calculate_results.py
 - Console: Detailed results table and analysis
 - [`data/experiment_results.json`](data/experiment_results.json): Machine-readable results
 - [`screenshots/translation_distance_graph.png`](screenshots/translation_distance_graph.png): Visualization
-
-#### [📄 src/embeddings_calculator.py](src/embeddings_calculator.py) - Embeddings Module
-Reusable module for embedding calculations with methods:
-- `calculate_embeddings()`: Generate embeddings for text
-- `calculate_cosine_distance()`: Compute distance metrics
-- `process_experiment()`: Single experiment processor
-- `batch_process_experiments()`: Batch processing
 
 ### Agent Invocation (CLI)
 
