@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "description": "Test sentences for LLM translation pipeline error propagation analysis",
+    "created": "2024-11-14",
+    "version": "1.0",
+    "notes": "Each sentence should have ≥15 words for meaningful translation analysis"
+  },
+  "sentences": [
+    {
+      "id": "sentence_1",
+      "original": "The quick brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect accuracy while enjoying the beautiful weather.",
+      "word_count": 24,
+      "difficulty": "easy",
+      "notes": "Natural, everyday sentence with clear meaning"
+    },
+    {
+      "id": "sentence_2",
+      "original": "Technology has revolutionized our daily lives through smartphones, computers, and internet connectivity that enables global communication across distances and cultures.",
+      "word_count": 21,
+      "difficulty": "medium",
+      "notes": "Moderately complex sentence about technology"
+    },
+    {
+      "id": "sentence_3",
+      "original": "The scientific research team conducted extensive experiments to understand the complex mechanisms underlying human behavior and cognitive processes in diverse environmental conditions.",
+      "word_count": 24,
+      "difficulty": "hard",
+      "notes": "Technical/scientific sentence with domain-specific vocabulary"
+    },
+    {
+      "id": "sentence_4",
+      "original": "Climate change presents unprecedented challenges for governments, corporations, and individuals who must work together collaboratively to develop sustainable solutions for protecting our planet.",
+      "word_count": 24,
+      "difficulty": "medium",
+      "notes": "Current affairs topic with policy implications"
+    },
+    {
+      "id": "sentence_5",
+      "original": "The ancient civilization flourished for centuries through trade routes connecting distant regions, enabling exchange of goods, knowledge, ideas, and cultural practices among diverse populations.",
+      "word_count": 26,
+      "difficulty": "medium",
+      "notes": "Historical narrative with complex causality"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "error_rate": 0,
+    "original_sentence": "The quick brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect accuracy while enjoying the beautiful weather.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec grand enthousiasme et une précision parfaite tout en profitant du beau temps.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן בצהריים בחזון עם התלהבות גדולה ודיוק מושלם תוך כדי הנאה מהמזג האוויר היפה.",
+    "final_sentence": "The fast brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect accuracy while enjoying the beautiful weather.",
+    "tokens_used": 1250
+  },
+  {
+    "error_rate": 10,
+    "original_sentence": "The quikc brown fox jumps over the lazy dog in the sunny afternoon with greet enthusiasm and perfect accuracy while enjoying the beautiful weather.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec grand enthousiasme et une précision parfaite tout en profitant du beau temps.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן בצהריים בחזון עם התלהבות גדולה ודיוק מושלם תוך כדי הנאה מהמזג האוויר היפה.",
+    "final_sentence": "The fast brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect accuracy while enjoying the beautiful weather.",
+    "tokens_used": 1265
+  },
+  {
+    "error_rate": 20,
+    "original_sentence": "The quikc brwon fox jumps ovr the lazy dog in the sunny afternoon with greet enthuiasm and perfect accuracy while enjoying the beatiful weather.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec grand enthousiasme et une précision parfaite tout en profitant du beau temps.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן בצהריים בחזון עם התלהבות גדולה ודיוק טוב תוך כדי הנאה מהמזג האוויר הנחמד.",
+    "final_sentence": "The rapid brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and good accuracy while enjoying the pleasant weather.",
+    "tokens_used": 1280
+  },
+  {
+    "error_rate": 30,
+    "original_sentence": "The quikc brwon fax jumps ovr the lzy dog in the sunny aftrn with greet enthuiasm and prfect accuracy whil enjoying the beatiful wheater.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec grand enthousiasme et une précision correcte tout en profitant du beau temps.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן בצהריים בחזון עם התלהבות גדולה ודיוק נכון תוך כדי הנאה מהמזג האוויר הנחמד.",
+    "final_sentence": "The rapid brown fox jumps above the lazy dog in the afternoon with great enthusiasm and correct precision while enjoying the pleasant weather.",
+    "tokens_used": 1295
+  },
+  {
+    "error_rate": 40,
+    "original_sentence": "The quikc brwon fax jmps ovr the lzy dog in the suny aftrn with greet enthuiasm and prfect acuracy whil enjying the beatiful wheater.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec grand enthousiasme et une grande précision tout en appréciant le beau temps.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן בצהריים הביום עם התלהבות גדולה וגדול דיוק תוך כדי העריץ את המזג האוויר הנחמד.",
+    "final_sentence": "The rapid brown fox jumps above the lazy dog in the afternoon of the day with great enthusiasm and large accuracy while appreciating the pleasant weather.",
+    "tokens_used": 1310
+  },
+  {
+    "error_rate": 50,
+    "original_sentence": "The quikc brwon fax jmps ovr the lzy dg in the suny aftrn wth greet enthuiasm nd prfct acuracy whil enjying the beatiful wheater and skies.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec grand enthousiasme et grande précision tout en appréciant le beau temps et les cieux.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן בצהריים בעם התלהבות גדולה וגדול דיוק תוך כדי העריץ את המזג האוויר הנחמד והשמים.",
+    "final_sentence": "The rapid brown fox jumps above the lazy dog in the afternoon with great enthusiasm and large accuracy while appreciating the pleasant weather and the skies.",
+    "tokens_used": 1325
+  }
+]

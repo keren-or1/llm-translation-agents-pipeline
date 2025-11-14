@@ -1,0 +1,158 @@
+# Environment Variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+.jupyter/
+
+# API Keys & Secrets
+*.key
+*.pem
+*.crt
+secrets.json
+credentials.json
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+.~*
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Cache
+.cache/
+.venv_cache/
+*.cache
+*.pkl
+*.pickle
+
+# Logs
+*.log
+logs/
+debug/
+
+# Large Files
+*.tar
+*.tar.gz
+*.zip
+*.rar
+
+# Results with Real Data
+# (Only use for demo data)
+results/translations/*.json
+results/analysis/*.json
+
+# Specific but non-critical outputs
+*.png
+*.jpg
+*.jpeg
+
+# Except committed documentation
+!docs/**
+!README.md
+
+# External data (if using external sources)
+data/external/
+data/raw/*.csv
+!data/sample_data/
+
+# Model checkpoints
+models/
+*.model
+*.h5
+*.ckpt
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Node/npm (if applicable)
+node_modules/
+package-lock.json
+yarn.lock
+
+# MacOS specifics
+.AppleDouble
+.LSOverride
+.TemporaryItems
+
+# Windows specifics
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+
+# Keep configuration examples
+!config/.env.example
+!config/agent_prompts.yaml
+!config/experiment_config.json

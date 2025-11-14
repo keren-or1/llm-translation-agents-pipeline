@@ -1,0 +1,304 @@
+{
+  "experiment_metadata": {
+    "name": "LLM Translation Agents Error Propagation Study",
+    "version": "2.0",
+    "date_created": "2025-01-15",
+    "last_updated": "2025-01-20",
+    "description": "Comprehensive configuration for three-agent translation chain experiments",
+    "author": "Translation Agents Research Team"
+  },
+  "error_rates": {
+    "values": [0, 10, 20, 30, 40, 50],
+    "unit": "percent",
+    "description": "Percentage of words in input to corrupt with spelling errors"
+  },
+  "test_sentences": {
+    "minimum_word_count": 15,
+    "recommended_word_count": 20,
+    "complexity_levels": ["simple", "moderate", "complex", "technical"],
+    "domains": ["general", "technical", "conversational", "academic"]
+  },
+  "agent_configurations": {
+    "agent_a": {
+      "name": "English to French Translator",
+      "language_pair": {"from": "en", "to": "fr"},
+      "role": "Entry point - handles corrupted input",
+      "model_options": {
+        "primary": "gpt-4-turbo",
+        "alternative": "claude-3-opus-20240229",
+        "fallback": "gpt-3.5-turbo"
+      },
+      "parameters": {
+        "temperature": 0.3,
+        "max_tokens": 2000,
+        "top_p": 0.9,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0
+      },
+      "core_skills": [
+        "Translation Accuracy",
+        "Error Robustness",
+        "Meaning Preservation",
+        "Semantic Coherence"
+      ],
+      "prompt_version": "2.0",
+      "expected_performance": {
+        "0_percent_errors": {"distance": 0.05, "accuracy": 0.95},
+        "50_percent_errors": {"distance": 0.32, "accuracy": 0.75}
+      }
+    },
+    "agent_b": {
+      "name": "French to Hebrew Translator",
+      "language_pair": {"from": "fr", "to": "he"},
+      "role": "Middle link - crosses language families",
+      "model_options": {
+        "primary": "gpt-4-turbo",
+        "alternative": "claude-3-opus-20240229",
+        "fallback": "gpt-3.5-turbo"
+      },
+      "parameters": {
+        "temperature": 0.3,
+        "max_tokens": 2000,
+        "top_p": 0.9,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0
+      },
+      "core_skills": [
+        "Linguistic Bridge",
+        "Error Resilience",
+        "Semantic Preservation",
+        "Modern Hebrew Proficiency"
+      ],
+      "prompt_version": "2.0",
+      "special_considerations": [
+        "Right-to-left text",
+        "Unicode Hebrew block (U+0590 to U+05FF)",
+        "Modern Israeli Hebrew (2025 conventions)"
+      ]
+    },
+    "agent_c": {
+      "name": "Hebrew to English Back-Translator",
+      "language_pair": {"from": "he", "to": "en"},
+      "role": "Final step - comparison point with original",
+      "model_options": {
+        "primary": "gpt-4-turbo",
+        "alternative": "claude-3-opus-20240229",
+        "fallback": "gpt-3.5-turbo"
+      },
+      "parameters": {
+        "temperature": 0.3,
+        "max_tokens": 2000,
+        "top_p": 0.9,
+        "frequency_penalty": 0.0,
+        "presence_penalty": 0.0
+      },
+      "core_skills": [
+        "Natural English Generation",
+        "Error Handling",
+        "Semantic Fidelity",
+        "Quality Control"
+      ],
+      "prompt_version": "2.0",
+      "expected_performance": {
+        "0_percent_chain": {"distance_from_original": 0.05},
+        "50_percent_chain": {"distance_from_original": 0.32}
+      }
+    }
+  },
+  "embeddings_configuration": {
+    "model": "text-embedding-3-small",
+    "dimensions": 1536,
+    "provider": "openai",
+    "use_case": "Semantic similarity measurement",
+    "distance_metric": "cosine",
+    "batch_size": 32,
+    "notes": "Cosine distance = 1 - cosine similarity"
+  },
+  "execution_profiles": {
+    "fast": {
+      "description": "Quick testing with minimal API calls",
+      "error_rates": [0, 30, 50],
+      "sentences_per_rate": 1,
+      "model": "gpt-3.5-turbo",
+      "estimated_cost_usd": 0.50,
+      "estimated_time_minutes": 5
+    },
+    "balanced": {
+      "description": "Standard experiment configuration",
+      "error_rates": [0, 10, 20, 30, 40, 50],
+      "sentences_per_rate": 2,
+      "model": "gpt-4-turbo",
+      "estimated_cost_usd": 3.00,
+      "estimated_time_minutes": 20
+    },
+    "thorough": {
+      "description": "Comprehensive testing with statistical significance",
+      "error_rates": [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+      "sentences_per_rate": 5,
+      "model": "gpt-4-turbo",
+      "estimated_cost_usd": 12.00,
+      "estimated_time_minutes": 60
+    }
+  },
+  "error_injection_settings": {
+    "strategies": [
+      "swap_adjacent",
+      "replace_char",
+      "delete_char",
+      "duplicate_char"
+    ],
+    "preserve_punctuation": true,
+    "preserve_capitalization": false,
+    "random_seed": 42,
+    "reproducible": true
+  },
+  "output_configuration": {
+    "results_directory": "results/",
+    "subdirectories": {
+      "translations": "results/translations/",
+      "analysis": "results/analysis/",
+      "graphs": "results/graphs/",
+      "logs": "results/logs/"
+    },
+    "file_formats": {
+      "results": "json",
+      "visualizations": ["png", "svg", "html"],
+      "logs": "json",
+      "reports": ["json", "csv", "html"]
+    },
+    "logging": {
+      "level": "INFO",
+      "capture_prompts": true,
+      "capture_tokens": true,
+      "capture_timing": true
+    }
+  },
+  "statistical_analysis": {
+    "correlation_tests": ["pearson", "spearman"],
+    "regression_analysis": true,
+    "confidence_level": 0.95,
+    "hypothesis_tests": ["linearity", "normality"],
+    "metrics": [
+      "mean",
+      "median",
+      "std",
+      "min",
+      "max",
+      "r_squared",
+      "p_value"
+    ]
+  },
+  "visualization_settings": {
+    "main_plot": {
+      "type": "line_scatter",
+      "x_axis": "error_rate",
+      "y_axis": "cosine_distance",
+      "title": "Impact of Spelling Errors on Translation Quality",
+      "color_scheme": {
+        "primary": "#2E86AB",
+        "secondary": "#A23B72",
+        "accent": "#F18F01"
+      }
+    },
+    "interactive": {
+      "enabled": true,
+      "library": "plotly",
+      "export_html": true
+    },
+    "static": {
+      "enabled": true,
+      "library": "matplotlib",
+      "dpi": 300,
+      "formats": ["png", "svg"]
+    }
+  },
+  "quality_thresholds": {
+    "maximum_acceptable_distance": {
+      "0_percent": 0.10,
+      "10_percent": 0.20,
+      "20_percent": 0.30,
+      "30_percent": 0.45,
+      "40_percent": 0.60,
+      "50_percent": 0.75
+    },
+    "minimum_r_squared": 0.85,
+    "maximum_p_value": 0.05,
+    "test_coverage_minimum": 85
+  },
+  "api_configuration": {
+    "rate_limiting": {
+      "requests_per_minute": 60,
+      "delay_between_requests_seconds": 1
+    },
+    "retry_strategy": {
+      "max_retries": 3,
+      "backoff_multiplier": 2,
+      "initial_delay_seconds": 1
+    },
+    "timeout_seconds": 60
+  },
+  "validation_rules": {
+    "input": {
+      "minimum_length_words": 15,
+      "maximum_length_words": 100,
+      "allowed_characters": "unicode",
+      "reject_if_all_punctuation": true
+    },
+    "output": {
+      "reject_if_empty": true,
+      "reject_if_contains_meta_commentary": true,
+      "maximum_length_ratio": 3.0
+    }
+  },
+  "reproducibility": {
+    "random_seeds": {
+      "error_injection": 42,
+      "sampling": 123,
+      "general": 456
+    },
+    "version_control": {
+      "prompts": "2.0",
+      "code": "1.0",
+      "configuration": "2.0"
+    },
+    "environment": {
+      "python_version": "3.8+",
+      "required_packages": [
+        "openai>=1.0.0",
+        "numpy>=1.21.0",
+        "scipy>=1.7.0",
+        "pandas>=1.3.0",
+        "matplotlib>=3.4.0",
+        "plotly>=5.0.0",
+        "pytest>=7.0.0",
+        "pytest-cov>=3.0.0"
+      ]
+    }
+  },
+  "success_criteria": {
+    "experiment": {
+      "all_error_rates_tested": true,
+      "minimum_sentences_per_rate": 1,
+      "all_agents_executed": true,
+      "embeddings_calculated": true
+    },
+    "code_quality": {
+      "test_coverage_minimum_percent": 85,
+      "all_tests_pass": true,
+      "no_critical_bugs": true
+    },
+    "documentation": {
+      "all_prompts_documented": true,
+      "skills_explicitly_defined": true,
+      "verification_methods_described": true,
+      "results_visualized": true
+    }
+  },
+  "notes": {
+    "year": 2025,
+    "assignment": "LLM Agents Course - Assignment 3",
+    "objective": "Study error propagation through multi-agent LLM translation chain",
+    "key_innovation": "Explicit skill framework for each agent with verification",
+    "expected_finding": "Linear degradation of semantic similarity with error rate"
+  }
+}

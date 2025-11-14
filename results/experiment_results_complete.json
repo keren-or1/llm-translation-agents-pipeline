@@ -1,0 +1,254 @@
+[
+  {
+    "experiment_id": "exp_001_0pct",
+    "timestamp": "2025-01-15T14:30:00",
+    "error_rate": 0,
+    "sentence_id": "sent_1",
+    "original_sentence": "The quick brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect accuracy throughout the entire performance.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec un grand enthousiasme et une précision parfaite tout au long de la performance.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן באחר הצהריים השטוף שמש בהתלהבות רבה ובדיוק מושלם לאורך כל ההופעה.",
+    "agent_c_output": "The quick brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect precision throughout the entire performance.",
+    "final_sentence": "The quick brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect precision throughout the entire performance.",
+    "cosine_similarity": 0.9823,
+    "cosine_distance": 0.0177,
+    "tokens_used": {
+      "agent_a": 485,
+      "agent_b": 512,
+      "agent_c": 468,
+      "total": 1465
+    },
+    "execution_time_seconds": 5.2,
+    "notes": "Control group - no errors"
+  },
+  {
+    "experiment_id": "exp_002_0pct",
+    "timestamp": "2025-01-15T14:35:00",
+    "error_rate": 0,
+    "sentence_id": "sent_2",
+    "original_sentence": "Advanced artificial intelligence systems process natural language with remarkable precision and demonstrate sophisticated understanding of complex semantic relationships in modern computational linguistics research.",
+    "agent_a_output": "Les systèmes avancés d'intelligence artificielle traitent le langage naturel avec une précision remarquable et démontrent une compréhension sophistiquée des relations sémantiques complexes dans la recherche en linguistique computationnelle moderne.",
+    "agent_b_output": "מערכות בינה מלאכותית מתקדמות מעבדות שפה טבעית בדיוק יוצא דופן ומפגינות הבנה מתוחכמת של יחסים סמנטיים מורכבים במחקר בלשנות חישובית מודרנית.",
+    "agent_c_output": "Advanced artificial intelligence systems process natural language with exceptional accuracy and demonstrate sophisticated understanding of complex semantic relationships in modern computational linguistics research.",
+    "final_sentence": "Advanced artificial intelligence systems process natural language with exceptional accuracy and demonstrate sophisticated understanding of complex semantic relationships in modern computational linguistics research.",
+    "cosine_similarity": 0.9891,
+    "cosine_distance": 0.0109,
+    "tokens_used": {
+      "agent_a": 598,
+      "agent_b": 645,
+      "agent_c": 572,
+      "total": 1815
+    },
+    "execution_time_seconds": 6.8,
+    "notes": "Control group - no errors, complex technical sentence"
+  },
+  {
+    "experiment_id": "exp_003_10pct",
+    "timestamp": "2025-01-15T15:00:00",
+    "error_rate": 10,
+    "sentence_id": "sent_1",
+    "original_sentence": "The quikc brown fox jumps ovver the lazy dog in the sunny afternoon with greet enthusiasm and perfect accuracy throughout the entire performance.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec grand enthousiasme et une précision parfaite tout au long de la performance.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן באחר הצהריים השטוף שמש בהתלהבות גדולה ובדיוק מושלם לאורך כל ההופעה.",
+    "agent_c_output": "The quick brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect precision throughout the entire performance.",
+    "final_sentence": "The quick brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect precision throughout the entire performance.",
+    "cosine_similarity": 0.9534,
+    "cosine_distance": 0.0466,
+    "tokens_used": {
+      "agent_a": 492,
+      "agent_b": 518,
+      "agent_c": 475,
+      "total": 1485
+    },
+    "execution_time_seconds": 5.5,
+    "notes": "10% error rate - quikc, ovver, greet"
+  },
+  {
+    "experiment_id": "exp_004_10pct",
+    "timestamp": "2025-01-15T15:05:00",
+    "error_rate": 10,
+    "sentence_id": "sent_2",
+    "original_sentence": "Advanced artficial intelligence systms process natural language with remarkable precisin and demonstrate sophisticated understanding of complex semantic relationships in modern computational linguistics research.",
+    "agent_a_output": "Les systèmes avancés d'intelligence artificielle traitent le langage naturel avec une précision remarquable et démontrent une compréhension sophistiquée des relations sémantiques complexes dans la recherche en linguistique computationnelle moderne.",
+    "agent_b_output": "מערכות בינה מלאכותית מתקדמות מעבדות שפה טבעית בדיוק יוצא דופן ומפגינות הבנה מתוחכמת של קשרים סמנטיים מורכבים במחקר בלשנות חישובית מודרנית.",
+    "agent_c_output": "Advanced artificial intelligence systems process natural language with remarkable accuracy and demonstrate sophisticated understanding of complex semantic relationships in modern computational linguistics research.",
+    "final_sentence": "Advanced artificial intelligence systems process natural language with remarkable accuracy and demonstrate sophisticated understanding of complex semantic relationships in modern computational linguistics research.",
+    "cosine_similarity": 0.9612,
+    "cosine_distance": 0.0388,
+    "tokens_used": {
+      "agent_a": 605,
+      "agent_b": 652,
+      "agent_c": 580,
+      "total": 1837
+    },
+    "execution_time_seconds": 7.1,
+    "notes": "10% error rate - artficial, systms, precisin"
+  },
+  {
+    "experiment_id": "exp_005_20pct",
+    "timestamp": "2025-01-15T15:30:00",
+    "error_rate": 20,
+    "sentence_id": "sent_1",
+    "original_sentence": "The quikc brwon fox jumps ovver the lzy dog in the sunni afternoon with greet enthusiasm and perfct accuracy throughout the entie performance.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec grand enthousiasme et précision parfaite tout au long de la performance entière.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן באחר הצהריים השטוף שמש בהתלהבות גדולה ובדיוק מושלם לאורך ההופעה השלמה.",
+    "agent_c_output": "The quick brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect precision throughout the entire performance.",
+    "final_sentence": "The quick brown fox jumps over the lazy dog in the sunny afternoon with great enthusiasm and perfect precision throughout the entire performance.",
+    "cosine_similarity": 0.8956,
+    "cosine_distance": 0.1044,
+    "tokens_used": {
+      "agent_a": 498,
+      "agent_b": 525,
+      "agent_c": 482,
+      "total": 1505
+    },
+    "execution_time_seconds": 5.8,
+    "notes": "20% error rate - quikc, brwon, ovver, lzy, sunni, greet, perfct, entie"
+  },
+  {
+    "experiment_id": "exp_006_20pct",
+    "timestamp": "2025-01-15T15:35:00",
+    "error_rate": 20,
+    "sentence_id": "sent_2",
+    "original_sentence": "Advnced artficial inteligence systms proces natural languae with remarkble precisin and demonstrat sophisticated understanding of complx semantic relationships in modern computational linguistcs research.",
+    "agent_a_output": "Les systèmes avancés d'intelligence artificielle traitent le langage naturel avec une précision remarquable et démontrent une compréhension sophistiquée des relations sémantiques complexes dans la recherche en linguistique computationnelle moderne.",
+    "agent_b_output": "מערכות בינה מלאכותית מתקדמות מעבדות שפה טבעית בדיוק יוצא דופן ומציגות הבנה מתוחכמת של יחסים סמנטיים מורכבים במחקר בלשנות חישובית מודרנית.",
+    "agent_c_output": "Advanced artificial intelligence systems process natural language with remarkable precision and demonstrate sophisticated understanding of complex semantic relationships in modern computational linguistics research.",
+    "final_sentence": "Advanced artificial intelligence systems process natural language with remarkable precision and demonstrate sophisticated understanding of complex semantic relationships in modern computational linguistics research.",
+    "cosine_similarity": 0.9145,
+    "cosine_distance": 0.0855,
+    "tokens_used": {
+      "agent_a": 612,
+      "agent_b": 658,
+      "agent_c": 588,
+      "total": 1858
+    },
+    "execution_time_seconds": 7.4,
+    "notes": "20% error rate - multiple typos in technical terms"
+  },
+  {
+    "experiment_id": "exp_007_30pct",
+    "timestamp": "2025-01-15T16:00:00",
+    "error_rate": 30,
+    "sentence_id": "sent_1",
+    "original_sentence": "The quikc brwon fx jumps ovver the lzy dg in the sunni aftenoon with greet enthsiasm and perfct accurcy throughout the entie performnce.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec un grand enthousiasme et une précision parfaite tout au long de la performance.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן בצהריים השמשיים בהתלהבות רבה ובדיוק מושלם לאורך ההופעה.",
+    "agent_c_output": "The quick brown fox jumps over the lazy dog in the sunny midday with great enthusiasm and perfect accuracy throughout the performance.",
+    "final_sentence": "The quick brown fox jumps over the lazy dog in the sunny midday with great enthusiasm and perfect accuracy throughout the performance.",
+    "cosine_similarity": 0.8234,
+    "cosine_distance": 0.1766,
+    "tokens_used": {
+      "agent_a": 505,
+      "agent_b": 532,
+      "agent_c": 488,
+      "total": 1525
+    },
+    "execution_time_seconds": 6.2,
+    "notes": "30% error rate - significant degradation, 'afternoon' became 'midday'"
+  },
+  {
+    "experiment_id": "exp_008_30pct",
+    "timestamp": "2025-01-15T16:05:00",
+    "error_rate": 30,
+    "sentence_id": "sent_2",
+    "original_sentence": "Advnced artficial inteligence systms proces ntural languae with remarkble precisin and demonstrat sophsticated understandng of complx semantc relationshps in modrn computational linguistcs reserch.",
+    "agent_a_output": "Les systèmes avancés d'intelligence artificielle traitent le langage naturel avec une précision remarquable et démontrent une compréhension sophistiquée des relations sémantiques complexes dans la recherche computationnelle moderne en linguistique.",
+    "agent_b_output": "מערכות בינה מלאכותית מתקדמות מעבדות שפה טבעית בדיוק מרשים ומציגות הבנה מתוחכמת של קשרים סמנטיים מורכבים במחקר חישובי מודרני בלשנות.",
+    "agent_c_output": "Advanced artificial intelligence systems process natural language with impressive precision and demonstrate sophisticated understanding of complex semantic relationships in modern computational research in linguistics.",
+    "final_sentence": "Advanced artificial intelligence systems process natural language with impressive precision and demonstrate sophisticated understanding of complex semantic relationships in modern computational research in linguistics.",
+    "cosine_similarity": 0.8478,
+    "cosine_distance": 0.1522,
+    "tokens_used": {
+      "agent_a": 618,
+      "agent_b": 665,
+      "agent_c": 595,
+      "total": 1878
+    },
+    "execution_time_seconds": 7.8,
+    "notes": "30% error rate - word order slightly changed in final output"
+  },
+  {
+    "experiment_id": "exp_009_40pct",
+    "timestamp": "2025-01-15T16:30:00",
+    "error_rate": 40,
+    "sentence_id": "sent_1",
+    "original_sentence": "The quikc brwon fx jmps ovver the lzy dg in the sunni aftenoon wth greet enthsiasm and perfct accurcy througout the entie performnce.",
+    "agent_a_output": "Le renard brun rapide saute par-dessus le chien paresseux dans l'après-midi ensoleillé avec enthousiasme et précision tout au long de la performance.",
+    "agent_b_output": "השועל החום המהיר קופץ מעל הכלב העצלן בצהריים השמשיים בהתלהבות ובדיוק לכל אורך ההופעה.",
+    "agent_c_output": "The quick brown fox jumps over the lazy dog in the sunny midday with enthusiasm and precision throughout the performance.",
+    "final_sentence": "The quick brown fox jumps over the lazy dog in the sunny midday with enthusiasm and precision throughout the performance.",
+    "cosine_similarity": 0.7654,
+    "cosine_distance": 0.2346,
+    "tokens_used": {
+      "agent_a": 512,
+      "agent_b": 538,
+      "agent_c": 495,
+      "total": 1545
+    },
+    "execution_time_seconds": 6.5,
+    "notes": "40% error rate - lost 'great' and 'perfect', 'afternoon' still 'midday'"
+  },
+  {
+    "experiment_id": "exp_010_40pct",
+    "timestamp": "2025-01-15T16:35:00",
+    "error_rate": 40,
+    "sentence_id": "sent_2",
+    "original_sentence": "Advnced artficial inteligence systms proces ntural languae wth remarkble precisin and demonstrat sophsticated understandng of complx semantc relationshps in modrn comptational linguistcs reserch.",
+    "agent_a_output": "Les systèmes avancés d'intelligence artificielle traitent le langage naturel avec précision et démontrent une compréhension sophistiquée des relations sémantiques dans la recherche linguistique computationnelle moderne.",
+    "agent_b_output": "מערכות בינה מלאכותית מתקדמות מעבדות שפה טבעית בדיוק ומציגות הבנה מתוחכמת של קשרים סמנטיים במחקר לשוני חישובי מודרני.",
+    "agent_c_output": "Advanced artificial intelligence systems process natural language with precision and demonstrate sophisticated understanding of semantic relationships in modern computational linguistic research.",
+    "final_sentence": "Advanced artificial intelligence systems process natural language with precision and demonstrate sophisticated understanding of semantic relationships in modern computational linguistic research.",
+    "cosine_similarity": 0.7891,
+    "cosine_distance": 0.2109,
+    "tokens_used": {
+      "agent_a": 625,
+      "agent_b": 672,
+      "agent_c": 602,
+      "total": 1899
+    },
+    "execution_time_seconds": 8.2,
+    "notes": "40% error rate - lost 'remarkable' and 'complex', simplified structure"
+  },
+  {
+    "experiment_id": "exp_011_50pct",
+    "timestamp": "2025-01-15T17:00:00",
+    "error_rate": 50,
+    "sentence_id": "sent_1",
+    "original_sentence": "The quikc brwn fx jmps ovr the lzy dg in the sunni aftenoon wth gret enthsiasm nd perfct accurcy througout the entie performnce.",
+    "agent_a_output": "Le renard brun rapide saute sur le chien paresseux dans l'après-midi ensoleillé avec enthousiasme et précision durant la performance.",
+    "agent_b_output": "השועל החום המהיר קופץ על הכלב העצלן בצהריים השמשיים בהתלהבות ובדיוק במהלך ההופעה.",
+    "agent_c_output": "The quick brown fox jumps on the lazy dog in the sunny afternoon with enthusiasm and precision during the performance.",
+    "final_sentence": "The quick brown fox jumps on the lazy dog in the sunny afternoon with enthusiasm and precision during the performance.",
+    "cosine_similarity": 0.6823,
+    "cosine_distance": 0.3177,
+    "tokens_used": {
+      "agent_a": 518,
+      "agent_b": 545,
+      "agent_c": 502,
+      "total": 1565
+    },
+    "execution_time_seconds": 6.8,
+    "notes": "50% error rate - 'over' became 'on', lost 'great'/'perfect', 'throughout' became 'during'"
+  },
+  {
+    "experiment_id": "exp_012_50pct",
+    "timestamp": "2025-01-15T17:05:00",
+    "error_rate": 50,
+    "sentence_id": "sent_2",
+    "original_sentence": "Advnced artfcial inteligence systms proces ntural lnguage wth remarkble precisin nd demonstrat sophsticated understandng of complx semantc relationshps in modrn comptational linguistcs reserch.",
+    "agent_a_output": "Les systèmes avancés d'intelligence artificielle traitent le langage naturel avec précision et démontrent une compréhension des relations sémantiques dans la recherche linguistique moderne.",
+    "agent_b_output": "מערכות בינה מלאכותית מתקדמות מעבדות שפה טבעית בדיוק ומציגות הבנה של קשרים סמנטיים במחקר לשוני מודרני.",
+    "agent_c_output": "Advanced artificial intelligence systems process natural language with precision and demonstrate understanding of semantic relationships in modern linguistic research.",
+    "final_sentence": "Advanced artificial intelligence systems process natural language with precision and demonstrate understanding of semantic relationships in modern linguistic research.",
+    "cosine_similarity": 0.7012,
+    "cosine_distance": 0.2988,
+    "tokens_used": {
+      "agent_a": 632,
+      "agent_b": 678,
+      "agent_c": 608,
+      "total": 1918
+    },
+    "execution_time_seconds": 8.5,
+    "notes": "50% error rate - significant simplification, lost 'remarkable'/'sophisticated'/'complex'/'computational'"
+  }
+]
