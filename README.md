@@ -14,15 +14,19 @@ The system tests robustness to spelling errors across six error rates: 0%, 10%, 
 ## 📁 Project Structure
 
 ```
-assignment3/
-├── agent_a_english_to_french.md          # Agent A skills and system prompt
-├── agent_b_french_to_hebrew.md           # Agent B skills and system prompt
-├── agent_c_hebrew_to_english.md          # Agent C skills and system prompt
-├── experiment_data.md                     # Detailed experimental data and results
-├── experiment_results.json                # Results in machine-readable format
-├── embeddings_calculator.py               # Initial embeddings calculator module
-├── calculate_results.py                   # Comprehensive results calculator script
-├── translation_distance_graph.png         # Visualization of results
+llm-translation-agents-pipeline/
+├── docs/
+│   ├── agent_a_english_to_french.md      # Agent A skills and system prompt
+│   ├── agent_b_french_to_hebrew.md       # Agent B skills and system prompt
+│   └── agent_c_hebrew_to_english.md      # Agent C skills and system prompt
+├── data/
+│   ├── experiment_data.md                 # Detailed experimental data and results
+│   └── experiment_results.json            # Results in machine-readable format
+├── src/
+│   ├── embeddings_calculator.py           # Initial embeddings calculator module
+│   └── calculate_results.py               # Comprehensive results calculator script
+├── screenshots/
+│   └── translation_distance_graph.png     # Visualization of results
 └── README.md                              # This file
 ```
 
@@ -31,7 +35,7 @@ assignment3/
 ## 🔧 Agent Specifications
 
 ### Agent A: English to French
-**File**: `agent_a_english_to_french.md`
+**File**: [📄 agent_a_english_to_french.md](docs/agent_a_english_to_french.md)
 
 **Core Skills**:
 1. English-to-French Translation Competence
@@ -43,7 +47,7 @@ assignment3/
 **Key Feature**: Handles English spelling errors by inferring intended meanings without correction.
 
 ### Agent B: French to Hebrew
-**File**: `agent_b_french_to_hebrew.md`
+**File**: [📄 agent_b_french_to_hebrew.md](docs/agent_b_french_to_hebrew.md)
 
 **Core Skills**:
 1. French-to-Hebrew Translation Competence
@@ -56,7 +60,7 @@ assignment3/
 **Key Feature**: Navigates Romance-to-Semitic language conversion while maintaining semantic fidelity.
 
 ### Agent C: Hebrew to English
-**File**: `agent_c_hebrew_to_english.md`
+**File**: [📄 agent_c_hebrew_to_english.md](docs/agent_c_hebrew_to_english.md)
 
 **Core Skills**:
 1. Hebrew-to-English Translation Competence
@@ -101,7 +105,7 @@ assignment3/
 
 ## 📈 Graph Visualization
 
-Generated: `translation_distance_graph.png`
+![Translation Distance Graph](screenshots/translation_distance_graph.png)
 
 The graph displays two synchronized views:
 1. **Left Panel**: Cosine Distance vs Error Percentage
@@ -111,6 +115,8 @@ The graph displays two synchronized views:
 2. **Right Panel**: Cosine Similarity vs Error Percentage
    - Inverse relationship to cosine distance
    - Demonstrates semantic preservation even at 50% errors (0.445 similarity)
+
+**View Raw Data**: [📊 experiment_results.json](data/experiment_results.json) | [📋 experiment_data.md](data/experiment_data.md)
 
 ---
 
@@ -151,7 +157,7 @@ The system demonstrates that LLM translation pipelines can reliably handle noisy
 
 ### Python Scripts
 
-#### `calculate_results.py` - Main Results Calculator
+#### [📄 src/calculate_results.py](src/calculate_results.py) - Main Results Calculator
 - Loads sentence embeddings model (all-MiniLM-L6-v2)
 - Processes 6 experiments in parallel
 - Calculates cosine distances and similarities
@@ -161,15 +167,15 @@ The system demonstrates that LLM translation pipelines can reliably handle noisy
 
 **Usage**:
 ```bash
-python3 calculate_results.py
+python3 src/calculate_results.py
 ```
 
 **Output**:
 - Console: Detailed results table and analysis
-- `experiment_results.json`: Machine-readable results
-- `translation_distance_graph.png`: Visualization
+- [`data/experiment_results.json`](data/experiment_results.json): Machine-readable results
+- [`screenshots/translation_distance_graph.png`](screenshots/translation_distance_graph.png): Visualization
 
-#### `embeddings_calculator.py` - Embeddings Module
+#### [📄 src/embeddings_calculator.py](src/embeddings_calculator.py) - Embeddings Module
 Reusable module for embedding calculations with methods:
 - `calculate_embeddings()`: Generate embeddings for text
 - `calculate_cosine_distance()`: Compute distance metrics
@@ -252,14 +258,14 @@ Alternatively, use Task-based invocation as demonstrated in the experiment runs.
 
 ## 📊 Results Files
 
-### experiment_results.json
+### [📊 data/experiment_results.json](data/experiment_results.json)
 Machine-readable JSON containing:
 - Error percentages
 - Original and final English sentences
 - Cosine distances
 - Cosine similarities
 
-### experiment_data.md
+### [📋 data/experiment_data.md](data/experiment_data.md)
 Comprehensive markdown report with:
 - Detailed translation outputs
 - Results tables
@@ -267,7 +273,7 @@ Comprehensive markdown report with:
 - Findings and conclusions
 - Deliverables checklist
 
-### translation_distance_graph.png
+### [📸 screenshots/translation_distance_graph.png](screenshots/translation_distance_graph.png)
 Professional visualization showing:
 - Cosine distance trend
 - Cosine similarity trend
@@ -297,22 +303,28 @@ The three-agent system successfully simulates sequential processing with:
 ### Running the Complete Experiment
 ```bash
 # Navigate to project directory
-cd assignment3
+cd llm-translation-agents-pipeline
+
+# Install dependencies
+pip install sentence-transformers scikit-learn matplotlib pandas numpy
 
 # Execute results calculator
-python3 calculate_results.py
+python3 src/calculate_results.py
 
 # View results
-cat experiment_results.json
-open translation_distance_graph.png  # macOS
+cat data/experiment_results.json
+open screenshots/translation_distance_graph.png  # macOS
 # or use your preferred image viewer
 ```
 
 ### Using Agents (CLI)
-For each translation step, use Claude Code's agent features with the provided markdown files containing skills and prompts.
+For each translation step, use Claude Code's agent features with the provided markdown files:
+- [📄 Agent A (English→French)](docs/agent_a_english_to_french.md)
+- [📄 Agent B (French→Hebrew)](docs/agent_b_french_to_hebrew.md)
+- [📄 Agent C (Hebrew→English)](docs/agent_c_hebrew_to_english.md)
 
 ### Analyzing Results
-Open `experiment_data.md` for:
+Open [📋 data/experiment_data.md](data/experiment_data.md) for:
 - Complete experimental data
 - Statistical analysis
 - Findings and conclusions
