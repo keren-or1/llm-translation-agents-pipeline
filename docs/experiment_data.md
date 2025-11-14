@@ -2,10 +2,10 @@
 
 ## 🔗 Quick Navigation
 - 🏠 [Back to README](../README.md)
-- 📖 [Experimental Methodology](../METHODOLOGY.md)
-- 📄 [Agent A Documentation](../docs/agent_a_english_to_french.md)
-- 📄 [Agent B Documentation](../docs/agent_b_french_to_hebrew.md)
-- 📄 [Agent C Documentation](../docs/agent_c_hebrew_to_english.md)
+- 📖 [Experimental Methodology](METHODOLOGY.md)
+- 📄 [Agent A Documentation](agent_a_english_to_french.md)
+- 📄 [Agent B Documentation](agent_b_french_to_hebrew.md)
+- 📄 [Agent C Documentation](agent_c_hebrew_to_english.md)
 - 📊 [Raw JSON Results](experiment_results.json)
 - 🔧 [Python Scripts](../src/)
 
@@ -51,7 +51,7 @@
 ## Agent Prompts
 
 ### Agent A (English → French)
-📄 **Full Documentation**: [agent_a_english_to_french.md](../docs/agent_a_english_to_french.md)
+📄 **Full Documentation**: [agent_a_english_to_french.md](agent_a_english_to_french.md)
 
 You are a professional translator. Your task is to translate English text to French.
 - Preserve the original meaning exactly
@@ -61,7 +61,7 @@ You are a professional translator. Your task is to translate English text to Fre
 - Provide only the translation, without explanations
 
 ### Agent B (French → Hebrew)
-📄 **Full Documentation**: [agent_b_french_to_hebrew.md](../docs/agent_b_french_to_hebrew.md)
+📄 **Full Documentation**: [agent_b_french_to_hebrew.md](agent_b_french_to_hebrew.md)
 
 You are a professional translator. Your task is to translate French text to Hebrew.
 - Preserve the original meaning exactly
@@ -70,7 +70,7 @@ You are a professional translator. Your task is to translate French text to Hebr
 - Provide only the translation, without explanations
 
 ### Agent C (Hebrew → English)
-📄 **Full Documentation**: [agent_c_hebrew_to_english.md](../docs/agent_c_hebrew_to_english.md)
+📄 **Full Documentation**: [agent_c_hebrew_to_english.md](agent_c_hebrew_to_english.md)
 
 You are a professional translator. Your task is to translate Hebrew text back to English.
 - Preserve the original meaning exactly
@@ -82,7 +82,7 @@ You are a professional translator. Your task is to translate Hebrew text back to
 ### 📊 Visualization
 ![Translation Distance Graph](../screenshots/translation_distance_graph.png)
 
-**Raw Data**: [📊 experiment_results.json](experiment_results.json)
+**Raw Data**: [📊 experiment_results.json](experiment_results.json) (in same directory)
 
 ### Translation Outputs
 

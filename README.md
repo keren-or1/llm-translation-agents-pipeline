@@ -16,10 +16,10 @@ The system tests robustness to spelling errors across six error rates: 0%, 10%, 
 ```
 llm-translation-agents-pipeline/
 ├── docs/
-│   ├── agent_a_english_to_french.md      # Agent A skills and system prompt
-│   ├── agent_b_french_to_hebrew.md       # Agent B skills and system prompt
-│   └── agent_c_hebrew_to_english.md      # Agent C skills and system prompt
-├── data/
+│   ├── METHODOLOGY.md                     # Experimental setup and process documentation
+│   ├── agent_a_english_to_french.md       # Agent A skills and system prompt
+│   ├── agent_b_french_to_hebrew.md        # Agent B skills and system prompt
+│   ├── agent_c_hebrew_to_english.md       # Agent C skills and system prompt
 │   ├── experiment_data.md                 # Detailed experimental data and results
 │   └── experiment_results.json            # Results in machine-readable format
 ├── src/
@@ -39,7 +39,7 @@ For detailed information about how the experiments were conducted, including:
 - Embeddings calculation steps
 - Reproducibility guide
 
-👉 **See**: [📋 METHODOLOGY.md](METHODOLOGY.md)
+👉 **See**: [📋 METHODOLOGY.md](docs/METHODOLOGY.md)
 
 ---
 
@@ -127,7 +127,7 @@ The graph displays two synchronized views:
    - Inverse relationship to cosine distance
    - Demonstrates semantic preservation even at 50% errors (0.445 similarity)
 
-**View Raw Data**: [📊 experiment_results.json](data/experiment_results.json) | [📋 experiment_data.md](data/experiment_data.md)
+**View Raw Data**: [📊 experiment_results.json](docs/experiment_results.json) | [📋 experiment_data.md](docs/experiment_data.md)
 
 ---
 
@@ -262,14 +262,14 @@ Alternatively, use Task-based invocation as demonstrated in the experiment runs.
 
 ## 📊 Results Files
 
-### [📊 data/experiment_results.json](data/experiment_results.json)
+### [📊 docs/experiment_results.json](docs/experiment_results.json)
 Machine-readable JSON containing:
 - Error percentages
 - Original and final English sentences
 - Cosine distances
 - Cosine similarities
 
-### [📋 data/experiment_data.md](data/experiment_data.md)
+### [📋 docs/experiment_data.md](docs/experiment_data.md)
 Comprehensive markdown report with:
 - Detailed translation outputs
 - Results tables
@@ -328,7 +328,7 @@ For each translation step, use Claude Code's agent features with the provided ma
 - [📄 Agent C (Hebrew→English)](docs/agent_c_hebrew_to_english.md)
 
 ### Analyzing Results
-Open [📋 data/experiment_data.md](data/experiment_data.md) for:
+Open [📋 docs/experiment_data.md](docs/experiment_data.md) for:
 - Complete experimental data
 - Statistical analysis
 - Findings and conclusions

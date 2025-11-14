@@ -10,15 +10,15 @@ This document describes the complete process for running the translation agent e
 ### 1.1 Agent Skill Files
 Three agents were defined with specialized skills and system prompts:
 
-- **Agent A** ([📄 docs/agent_a_english_to_french.md](docs/agent_a_english_to_french.md))
+- **Agent A** ([📄 agent_a_english_to_french.md](agent_a_english_to_french.md))
   - Task: English → French translation
   - Special skill: Handles spelling errors in English input
 
-- **Agent B** ([📄 docs/agent_b_french_to_hebrew.md](docs/agent_b_french_to_hebrew.md))
+- **Agent B** ([📄 agent_b_french_to_hebrew.md](agent_b_french_to_hebrew.md))
   - Task: French → Hebrew translation
   - Special skill: Navigates Romance-to-Semitic language bridge
 
-- **Agent C** ([📄 docs/agent_c_hebrew_to_english.md](docs/agent_c_hebrew_to_english.md))
+- **Agent C** ([📄 agent_c_hebrew_to_english.md](agent_c_hebrew_to_english.md))
   - Task: Hebrew → English translation
   - Special skill: Natural English reconstruction
 
@@ -328,13 +328,13 @@ If this experiment were to be scaled:
 
 ## References
 
-- **Main README**: [README.md](README.md)
-- **Experimental Data**: [data/experiment_data.md](data/experiment_data.md)
-- **Results JSON**: [data/experiment_results.json](data/experiment_results.json)
-- **Results Script**: [src/calculate_results.py](src/calculate_results.py)
-- **Agent A**: [docs/agent_a_english_to_french.md](docs/agent_a_english_to_french.md)
-- **Agent B**: [docs/agent_b_french_to_hebrew.md](docs/agent_b_french_to_hebrew.md)
-- **Agent C**: [docs/agent_c_hebrew_to_english.md](docs/agent_c_hebrew_to_english.md)
+- **Main README**: [../README.md](../README.md)
+- **Experimental Data**: [experiment_data.md](experiment_data.md)
+- **Results JSON**: [experiment_results.json](experiment_results.json)
+- **Results Script**: [../src/calculate_results.py](../src/calculate_results.py)
+- **Agent A**: [agent_a_english_to_french.md](agent_a_english_to_french.md)
+- **Agent B**: [agent_b_french_to_hebrew.md](agent_b_french_to_hebrew.md)
+- **Agent C**: [agent_c_hebrew_to_english.md](agent_c_hebrew_to_english.md)
 
 ---
 
