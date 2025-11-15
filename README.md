@@ -31,13 +31,28 @@ llm-translation-agents-pipeline/
 
 ---
 
+## 🚀 Recent Improvements
+
+This project has been enhanced with:
+
+✅ **Input File Support** - Load experiments from `docs/experiments_input.json`
+✅ **CLI Arguments** - Flexible command-line configuration (`--input`, `--output`, `--cache-dir`)
+✅ **Embedding Caching** - Automatic caching of embeddings to speed up re-runs
+✅ **Agent CLI Integration** - Use `/agents` feature for cleaner agent invocation
+✅ **Backward Compatibility** - Works with hardcoded defaults if no input file specified
+
+See implementation details in [📋 METHODOLOGY.md](docs/METHODOLOGY.md#10-improvements-implemented--future-roadmap)
+
+---
+
 ## 📖 Experimental Setup & Methodology
 
 For detailed information about how the experiments were conducted, including:
-- Agent invocation process
+- Agent invocation process (`/agents` CLI recommended)
 - Data collection workflow
-- Embeddings calculation steps
+- Embeddings calculation with caching
 - Reproducibility guide
+- Implementation status
 
 👉 **See**: [📋 METHODOLOGY.md](docs/METHODOLOGY.md)
 
@@ -305,6 +320,8 @@ The three-agent system successfully simulates sequential processing with:
 ## 🚀 Usage Instructions
 
 ### Running the Complete Experiment
+
+#### Option 1: Using Defaults
 ```bash
 # Navigate to project directory
 cd llm-translation-agents-pipeline
@@ -312,20 +329,70 @@ cd llm-translation-agents-pipeline
 # Install dependencies
 pip install sentence-transformers scikit-learn matplotlib pandas numpy
 
-# Execute results calculator
+# Execute results calculator (uses hardcoded defaults)
 python3 src/calculate_results.py
+```
 
-# View results
-cat data/experiment_results.json
+#### Option 2: Using Input File (Recommended)
+```bash
+# Load experiments from JSON input file
+python3 src/calculate_results.py --input docs/experiments_input.json
+
+# Or with custom output paths
+python3 src/calculate_results.py \
+  --input docs/experiments_input.json \
+  --output results/my_results.json \
+  --graph-output results/my_graph.png \
+  --cache-dir .embeddings_cache
+```
+
+#### Option 3: Clear Cache and Recalculate
+```bash
+# Clear embedding cache and recalculate from scratch
+python3 src/calculate_results.py --input docs/experiments_input.json --clear-cache
+```
+
+#### View Results
+```bash
+# View JSON results
+cat docs/experiment_results.json
+
+# View graph
 open screenshots/translation_distance_graph.png  # macOS
 # or use your preferred image viewer
 ```
 
-### Using Agents (CLI)
-For each translation step, use Claude Code's agent features with the provided markdown files:
+### Available CLI Arguments
+```
+--input FILE, -i FILE           Path to JSON experiments file (uses hardcoded if not specified)
+--output FILE, -o FILE          Output JSON file (default: docs/experiment_results.json)
+--graph-output FILE, -g FILE    Output graph image (default: screenshots/translation_distance_graph.png)
+--cache-dir DIR, -c DIR         Cache directory for embeddings (default: .cache)
+--clear-cache                   Clear cache before running
+--help, -h                      Show help message
+```
+
+### Using Agents (CLI) - Recommended Approach
+
+Use Claude Code's `/agents` CLI feature with the provided skill definitions:
+
+```bash
+# Agent A: English to French
+/agents agent_a_english_to_french --input "The advansed artificial inteligence..."
+
+# Agent B: French to Hebrew
+/agents agent_b_french_to_hebrew --input "[output from Agent A]"
+
+# Agent C: Hebrew to English
+/agents agent_c_hebrew_to_english --input "[output from Agent B]"
+```
+
+**Agent Documentation**:
 - [📄 Agent A (English→French)](docs/agent_a_english_to_french.md)
 - [📄 Agent B (French→Hebrew)](docs/agent_b_french_to_hebrew.md)
 - [📄 Agent C (Hebrew→English)](docs/agent_c_hebrew_to_english.md)
+
+**Note**: Each agent includes detailed skills and system prompts optimized for translation tasks and spelling error robustness.
 
 ### Analyzing Results
 Open [📋 docs/experiment_data.md](docs/experiment_data.md) for:

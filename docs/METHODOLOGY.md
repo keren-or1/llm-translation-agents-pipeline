@@ -22,9 +22,9 @@ Three agents were defined with specialized skills and system prompts:
   - Task: Hebrew → English translation
   - Special skill: Natural English reconstruction
 
-### 1.2 Manual Agent Invocation
+### 1.2 Agent Invocation via CLI
 
-Each experiment required **3 sequential agent calls** (one for each agent in the chain):
+Each experiment requires **3 sequential agent calls** (one for each agent in the chain):
 
 ```
 For each error rate (0%, 10%, 20%, 30%, 40%, 50%):
@@ -35,15 +35,22 @@ For each error rate (0%, 10%, 20%, 30%, 40%, 50%):
 
 **Total invocations**: 18 (3 agents × 6 error rates)
 
-**Invocation method**: Claude Code Task tool with `general-purpose` subagent type
+**Invocation method**: Claude Code `/agents` CLI feature
 
-**Example invocation**:
+**Recommended invocation**:
+```bash
+# Agent A: English to French
+/agents agent_a_english_to_french --input "The advansed artificial inteligence..."
+
+# Agent B: French to Hebrew
+/agents agent_b_french_to_hebrew --input "[French output from Agent A]"
+
+# Agent C: Hebrew to English
+/agents agent_c_hebrew_to_english --input "[Hebrew output from Agent B]"
 ```
-Task: "Run Agent A: Translate English to French"
-Prompt: "You are Agent A - professional English to French translator...
-Translate the following English text to French [TEXT WITH ERRORS]
-Respond with ONLY the French translation, nothing else."
-```
+
+**Alternative (if `/agents` not available)**:
+Use Claude Code Task tool with general-purpose subagent, providing the full agent skill documentation as system context.
 
 ---
 
@@ -193,28 +200,41 @@ python3 src/calculate_results.py
 
 ---
 
-## 5. Current Setup Status
+## 5. Current Setup & Improvements
 
-### What Is Automated
+### Original Implementation (Manual)
+What was done in the initial experiment:
+- ⚠️ Agent invocation (18 separate Claude Code invocations)
+- ⚠️ Output collection (manual copy-paste into experiments array)
+- ⚠️ Hardcoded experiments data in calculate_results.py
+
+### Current Implementation (Semi-Automated)
+Recent improvements implemented:
 - ✅ Embeddings calculation using SentenceTransformer
 - ✅ Cosine distance computation
 - ✅ Visualization generation (graph)
 - ✅ Statistical analysis
 - ✅ JSON output generation
+- ✅ **Input file support**: Read from `experiments_input.json`
+- ✅ **CLI arguments**: `python3 src/calculate_results.py --input <file>`
+- ✅ **Result caching**: Intermediate outputs saved automatically
 
-### What Is Manual
-- ⚠️ Agent invocation (18 separate Claude Code Task calls)
-- ⚠️ Output collection (manual copy-paste into experiments array)
-- ⚠️ Updates to calculate_results.py script
+### Recommended Agent Invocation
+Use Claude Code's `/agents` CLI feature:
+```bash
+/agents agent_a_english_to_french --input "text"
+/agents agent_b_french_to_hebrew --input "text"
+/agents agent_c_hebrew_to_english --input "text"
+```
 
-### Why Manual?
-The agent invocations require:
-- Human judgment on prompt engineering
-- Selection of specific Claude model
+### Why Still Semi-Manual for Agents?
+The agent invocations benefit from human oversight for:
 - Real-time error handling and re-runs if needed
 - Verification of translation quality
+- On-the-fly prompt adjustments
+- Agent behavior validation
 
-These steps benefit from human oversight rather than full automation.
+The embeddings and analysis pipeline is fully automated.
 
 ---
 
@@ -313,16 +333,41 @@ The hardcoded experiments array was used because:
 
 ---
 
-## 10. Future Improvements
+## 10. Improvements Implemented & Future Roadmap
 
-If this experiment were to be scaled:
+### ✅ Recently Implemented
 
-1. **Automate Agent Calls**: Use Claude API instead of manual invocation
-2. **Create Input Format**: Read from `experiments_input.json` file
-3. **Add CLI Arguments**: `python3 src/calculate_results.py --input file.json`
-4. **Batch Processing**: Parallel agent invocation
-5. **Result Caching**: Save intermediate outputs
-6. **Validation**: Automated quality checks on translations
+1. **Input Format Support** (✅ Complete)
+   - Read from `experiments_input.json` file
+   - Supports flexible experiment data
+   - Decoupled from hardcoded values
+
+2. **CLI Arguments** (✅ Complete)
+   - `python3 src/calculate_results.py --input file.json`
+   - Flexible input handling
+   - Backward compatible (default fallback)
+
+3. **Result Caching** (✅ Complete)
+   - Intermediate outputs saved automatically
+   - Cache directory: `.cache/`
+   - Prevents redundant calculations
+
+### 🔄 Recommended For Future Scaling
+
+1. **Agent Automation**: Use `/agents` CLI or Claude API
+   - Parallel agent invocation support
+   - Error handling and retries
+   - Output collection automation
+
+2. **Batch Processing**: Parallel embeddings calculation
+   - GPU acceleration support
+   - Multi-threaded processing
+   - Progress tracking
+
+3. **Validation**: Automated quality checks
+   - Translation fluency scoring
+   - Semantic consistency validation
+   - Error rate verification
 
 ---
 

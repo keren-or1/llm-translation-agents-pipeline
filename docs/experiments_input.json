@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "description": "Input file for translation agent experiments",
+    "base_sentence": "The advanced artificial intelligence system successfully translates complex linguistic patterns across multiple languages with remarkable accuracy and precision.",
+    "base_word_count": 18,
+    "error_rates": [0, 10, 20, 30, 40, 50],
+    "language_chain": "English → French → Hebrew → English"
+  },
+  "experiments": [
+    {
+      "error_percentage": 0,
+      "original_english": "The advanced artificial intelligence system successfully translates complex linguistic patterns across multiple languages with remarkable accuracy and precision.",
+      "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models into multiple languages with exceptional accuracy and precision.",
+      "notes": "Baseline - no spelling errors"
+    },
+    {
+      "error_percentage": 10,
+      "original_english": "The advansed artificial inteligence system sucessfully translates complex linguistic patterns across multiple languages with remarkable accuracy and precision.",
+      "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models into multiple languages with exceptional accuracy and precision.",
+      "notes": "3 errors: advansed, inteligence, sucessfully",
+      "errors": ["advansed→advanced", "inteligence→intelligence", "sucessfully→successfully"]
+    },
+    {
+      "error_percentage": 20,
+      "original_english": "The advansed artificial inteligence sistem sucessfully translates complex lingustic patterns across multiple languages with remarkable accuracy and precision.",
+      "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models into multiple languages with exceptional accuracy and precision.",
+      "notes": "4 errors: advansed, inteligence, sistem, lingustic",
+      "errors": ["advansed→advanced", "inteligence→intelligence", "sistem→system", "lingustic→linguistic", "sucessfully→successfully"]
+    },
+    {
+      "error_percentage": 30,
+      "original_english": "The advansed artificial inteligence sistem sucessfully translates complex lingustic patterns across multiple langages with remarkble accuracy and precision.",
+      "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models in multiple languages with exceptional accuracy and precision.",
+      "notes": "6 errors",
+      "errors": ["advansed→advanced", "inteligence→intelligence", "sistem→system", "sucessfully→successfully", "lingustic→linguistic", "langages→languages", "remarkble→remarkable"]
+    },
+    {
+      "error_percentage": 40,
+      "original_english": "The advansed articial inteligence sistem sucessfully transltes complex lingustic patterns acros multiple langages with remarkble accuracy and presicion.",
+      "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models across multiple languages with exceptional accuracy and reliability.",
+      "notes": "8+ errors - cumulative error threshold effect",
+      "errors": ["advansed→advanced", "articial→artificial", "inteligence→intelligence", "sistem→system", "sucessfully→successfully", "transltes→translates", "lingustic→linguistic", "acros→across", "langages→languages", "remarkble→remarkable", "presicion→precision"]
+    },
+    {
+      "error_percentage": 50,
+      "original_english": "The advansed articial inteligence sistem sucsessfully transltes complx lingustic patters acros multple langages with remarkble acuracy and presicion.",
+      "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models between multiple languages with exceptional accuracy and reliability.",
+      "notes": "9+ errors - maximum semantic distance test",
+      "errors": ["advansed→advanced", "articial→artificial", "inteligence→intelligence", "sistem→system", "sucsessfully→successfully", "transltes→translates", "complx→complex", "lingustic→linguistic", "patters→patterns", "acros→across", "multple→multiple", "langages→languages", "remarkble→remarkable", "acuracy→accuracy", "presicion→precision"]
+    }
+  ]
+}
