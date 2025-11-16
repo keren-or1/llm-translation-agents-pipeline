@@ -245,8 +245,7 @@ Day 5: Analysis
   ├─ Calculate embeddings (Python)
   ├─ Measure vector distances
   ├─ Create results table
-  ├─ Generate graph
-  └─ Write analysis notebook
+  └─ Generate visualizations and documentation
 
 Day 6-7: Documentation & Submission
   ├─ Finalize all documentation
@@ -302,7 +301,7 @@ LLM_MODEL=gpt-4-turbo
 | Three sequential agents | Simulates Turing Machine with information loss/degradation |
 | 6 error rates | Provides adequate data points for trend analysis |
 | Cosine distance metric | Standard for semantic similarity; interpretable (0-2 range) |
-| Jupyter notebook for analysis | Interactive, reproducible, presentation-ready format |
+| Comprehensive documentation | Analysis integrated in markdown with visualizations |
 
 ### 9. Extension Points
 
@@ -321,6 +320,5 @@ LLM_MODEL=gpt-4-turbo
   - numpy, scipy (mathematical operations)
   - pandas (data manipulation)
   - matplotlib, seaborn (visualization)
-  - jupyter (notebooks)
 - **Version Control:** Git
 - **Testing:** pytest (for Python modules)

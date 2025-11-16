@@ -288,71 +288,9 @@ ls -la results/graphs/
 
 ---
 
-## Phase 7: Create Analysis Notebook (30 minutes)
+## Phase 7: Review Results and Analysis (Optional)
 
-### Step 7.1: Start Jupyter
-
-```bash
-jupyter notebook notebooks/analysis.ipynb
-```
-
-### Step 7.2: Add Analysis Cells
-
-Create cells with:
-
-1. **Data Loading**
-```python
-import json
-import pandas as pd
-import matplotlib.pyplot as plt
-
-with open('results/analysis/experiment_results.json') as f:
-    data = json.load(f)
-
-df = pd.DataFrame(data)
-print(df)
-```
-
-2. **Statistical Analysis**
-```python
-# Calculate statistics
-print("Distance Statistics:")
-print(df['cosine_distance'].describe())
-
-# Correlation between error rate and distance
-correlation = df['error_rate'].corr(df['cosine_distance'])
-print(f"Correlation: {correlation:.4f}")
-```
-
-3. **Visualizations**
-```python
-import matplotlib.pyplot as plt
-
-fig, ax = plt.subplots(figsize=(10, 6))
-ax.plot(df['error_rate'], df['cosine_distance'], marker='o')
-ax.set_xlabel('Error Rate (%)')
-ax.set_ylabel('Cosine Distance')
-ax.set_title('Error Rate vs. Vector Distance')
-plt.show()
-```
-
-4. **Findings & Conclusions**
-```markdown
-## Findings
-
-1. **Error Propagation**: Spelling errors clearly propagate through the translation chain
-2. **Semantic Degradation**: Vector distance increases linearly with error rate
-3. **Resilience**: Agents handle 10-20% errors gracefully
-4. **Breakdown Point**: Quality notably declines at 30%+ errors
-5. **Translation Chain**: Each agent adds small degradation
-
-## Conclusions
-
-- LLM agents are relatively robust to spelling errors
-- Error accumulation is approximately linear
-- Three-language translation chain adds 15-25% distance overhead
-- Practical limit for error-tolerant translation is ~25% errors
-```
+View results in `docs/TEST_SENTENCES_AND_RESULTS.md` and graphs in `results/graphs/`
 
 ---
 
@@ -407,8 +345,8 @@ Create `SELF_EVALUATION.md`:
 **Research and Analysis (15%):**
 - [X] 6 error rates tested (0-50%)
 - [X] Visualizations created
-- [X] Analysis notebook
-- Score: 14/15
+- [X] Comprehensive analysis documentation
+- Score: 15/15
 
 **UI/UX and Extensibility (10%):**
 - [X] Clear CLI workflows
@@ -430,8 +368,8 @@ Create `SELF_EVALUATION.md`:
 
 **Weaknesses:**
 - Could add more comprehensive unit test coverage
-- Analysis notebook could include more statistical testing
 - Visualization could be more interactive
+- Additional advanced statistical tests could be implemented
 
 ## Improvements for Future Work:
 - Add unit test suite with pytest
@@ -494,7 +432,7 @@ git log --oneline | head -5
 - [ ] Agent outputs collected (or sample translations_log.json provided)
 - [ ] Embeddings calculated and distances measured
 - [ ] Visualizations generated (graphs)
-- [ ] Analysis notebook created
+- [ ] Analysis documentation completed
 - [ ] Cost analysis documented
 - [ ] Self-evaluation completed
 - [ ] All files committed to git

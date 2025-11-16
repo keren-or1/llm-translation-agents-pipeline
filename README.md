@@ -85,7 +85,6 @@ Required packages:
 - `scipy >= 1.7.0` - Scientific computing (for cosine distance)
 - `pandas >= 1.3.0` - Data manipulation
 - `matplotlib >= 3.4.0` - Visualization
-- `jupyter >= 1.0.0` - Jupyter notebook support
 - `python-dotenv >= 0.19.0` - Environment variable management
 - `pyyaml >= 5.4.0` - Configuration file support
 
@@ -158,9 +157,6 @@ llm-translation-agents-pipeline/
 │       ├── error_vs_distance.png
 │       ├── error_vs_distance.svg
 │       └── detailed_analysis.png
-│
-├── notebooks/                        # Jupyter notebooks
-│   └── analysis.ipynb               # Complete analysis notebook
 │
 ├── docs/                            # Documentation
 │   ├── PRD.md                       # Product Requirements Document
@@ -474,9 +470,6 @@ python src/embeddings_calculator.py \
 python src/visualizer.py \
   --results results/analysis/experiment_results.json \
   --output results/graphs/
-
-# 6. Create analysis notebook
-jupyter notebook notebooks/analysis.ipynb
 ```
 
 ### Expected Execution Time
@@ -510,18 +503,9 @@ error_rate,original_sentence,final_sentence,cosine_similarity,cosine_distance,to
 
 - **error_vs_distance.png:** Primary graph showing error rate vs. cosine distance
 - **detailed_analysis.png:** Additional metrics and correlations
+- **comparison_table.png:** Summary comparison table
 
-### Analysis Notebook
-
-Open `notebooks/analysis.ipynb` to see:
-- Data loading and preprocessing
-- Statistical analysis
-- Trend identification
-- Conclusions and insights
-
-```bash
-jupyter notebook notebooks/analysis.ipynb
-```
+---
 
 ## Troubleshooting
 
@@ -621,8 +605,8 @@ To extend or modify the project:
 
 1. **Add new agents:** Edit `config/agent_prompts.yaml`
 2. **Change error injection:** Modify `src/error_injector.py`
-3. **Add analysis:** Create new Jupyter notebooks in `notebooks/`
-4. **Extend visualization:** Modify `src/visualizer.py`
+3. **Extend visualization:** Modify `src/visualizer.py`
+4. **Expand analysis:** Modify `src/statistical_analyzer.py`
 
 ## License
 
@@ -641,7 +625,7 @@ For issues or questions:
 1. Check this README's Troubleshooting section
 2. Review `docs/README_AGENTS.md` for agent-specific issues
 3. Check `docs/ARCHITECTURE.md` for system design questions
-4. Review `notebooks/analysis.ipynb` for analysis examples
+4. Review `docs/TEST_SENTENCES_AND_RESULTS.md` for results and analysis
 
 ---
 
