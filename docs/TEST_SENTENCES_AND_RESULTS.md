@@ -329,6 +329,54 @@ Pattern: STRONG LINEAR CORRELATION
 
 ---
 
+## Visualizations
+
+### Graph 1: Error Rate vs. Cosine Distance
+
+![Error vs Distance Graph](../results/graphs/error_vs_distance.png)
+
+**Description:** Primary visualization showing the relationship between spelling error percentage (X-axis) and cosine distance degradation (Y-axis). The graph demonstrates a strong linear correlation:
+- 0% errors: Distance ≈ 0.01
+- 10% errors: Distance ≈ 0.13
+- 20% errors: Distance ≈ 0.22
+- 30% errors: Distance ≈ 0.35
+- 40% errors: Distance ≈ 0.52
+- 50% errors: Distance ≈ 0.68
+
+**Format:** Available as PNG and SVG
+**Location:** `/results/graphs/error_vs_distance.png` and `/results/graphs/error_vs_distance.svg`
+
+---
+
+### Graph 2: Detailed Analysis Panel
+
+![Detailed Analysis](../results/graphs/detailed_analysis.png)
+
+**Description:** Multi-panel visualization including:
+- Error rate vs. distance trend line
+- Distribution of distances at each error rate
+- Confidence intervals showing consistency
+- Statistical summary statistics
+
+**Location:** `/results/graphs/detailed_analysis.png`
+
+---
+
+### Graph 3: Comparison Table
+
+![Comparison Table](../results/graphs/comparison_table.png)
+
+**Description:** Tabular visualization of all results including:
+- Error rate percentages
+- Mean cosine distances
+- Range (min-max) of distances
+- Quality assessments
+- Comparison across different sentence complexities
+
+**Location:** `/results/graphs/comparison_table.png`
+
+---
+
 ## Conclusion
 
 ✅ **All agents demonstrate all 4 skills** across 6 error rates
