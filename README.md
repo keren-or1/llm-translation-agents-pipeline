@@ -412,18 +412,266 @@ Open [📋 docs/experiment_data.md](docs/experiment_data.md) for:
 - **Training**: Trained on 1 billion sentence pairs
 
 ### Dependencies
+Full dependency list in `requirements.txt`:
 ```
-sentence-transformers
-scikit-learn
-matplotlib
-pandas
-numpy
+sentence-transformers==2.2.2
+scikit-learn==1.3.0
+matplotlib==3.7.1
+pandas==2.0.2
+numpy==1.24.3
+pytest==7.4.0
+pytest-cov==4.1.0
+python-dotenv==1.0.0
 ```
 
 ### Installation
 ```bash
-pip install sentence-transformers scikit-learn matplotlib pandas numpy
+# Clone and setup
+git clone <repository-url>
+cd llm-translation-agents-pipeline
+
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Verify installation
+python -c "from src.calculate_results import ExperimentResultsCalculator; print('✓ Ready')"
 ```
+
+---
+
+## ⚙️ Configuration Guide
+
+### Environment Variables
+
+Copy `.env.example` to `.env` and customize as needed:
+
+```bash
+cp .env.example .env
+```
+
+**Key Configuration Options**:
+```ini
+# Embedding Model
+EMBEDDING_MODEL=all-MiniLM-L6-v2
+
+# Cache Settings
+CACHE_DIR=.cache
+ENABLE_CACHE=true
+
+# Input/Output Paths
+INPUT_FILE=docs/experiments_input.json
+OUTPUT_FILE=docs/experiment_results.json
+GRAPH_OUTPUT=screenshots/translation_distance_graph.png
+
+# Visualization
+GRAPH_DPI=300
+GRAPH_WIDTH=12
+GRAPH_HEIGHT=6
+
+# Development
+DEBUG_MODE=false
+VERBOSE=false
+```
+
+All settings have sensible defaults. Override only what you need.
+
+### Configuration Priority
+
+1. Command-line arguments (highest priority)
+2. Environment variables (.env file)
+3. Hardcoded defaults (lowest priority)
+
+**Example with Custom Paths**:
+```bash
+python src/calculate_results.py \
+  --input my_experiments.json \
+  --output my_results.json \
+  --cache-dir .embeddings_cache
+```
+
+---
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+#### Issue: "Model loading failed" or "Connection timeout"
+
+**Problem**: First run tries to download embedding model from HuggingFace
+
+**Solution**:
+```bash
+# Pre-download the model
+python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2')"
+# Then run normally
+python src/calculate_results.py
+```
+
+#### Issue: "Cache is stale, getting different results"
+
+**Problem**: Embeddings cache contains outdated values
+
+**Solution**:
+```bash
+# Clear the cache and recalculate
+python src/calculate_results.py --clear-cache
+
+# Or manually remove
+rm -rf .cache/
+```
+
+#### Issue: "Out of memory" or "Slow performance"
+
+**Problem**: Processing too many sentences at once
+
+**Solution**:
+1. Reduce batch size in `.env`: `BATCH_SIZE=1`
+2. Process in smaller chunks
+3. Clear cache periodically: `--clear-cache`
+
+#### Issue: "Permission denied" when creating files
+
+**Problem**: Insufficient write permissions in output directory
+
+**Solution**:
+```bash
+# Check directory permissions
+ls -la results/
+
+# Create directory if missing
+mkdir -p results/ screenshots/ .cache
+
+# Run with proper permissions
+python src/calculate_results.py
+```
+
+#### Issue: "JSON decode error" in experiment file
+
+**Problem**: Malformed JSON in input file
+
+**Solution**:
+1. Validate JSON syntax: Use online JSON validator
+2. Check file encoding (should be UTF-8)
+3. Use provided `docs/experiments_input.json` as template
+4. Example valid format:
+```json
+{
+  "experiments": [
+    {
+      "error_percentage": 0,
+      "original_english": "The sentence...",
+      "french_output": "La phrase...",
+      "hebrew_output": "המשפט...",
+      "final_english": "The sentence..."
+    }
+  ]
+}
+```
+
+### Debug Mode
+
+Enable verbose output for troubleshooting:
+
+```bash
+# Method 1: Environment variable
+export DEBUG_MODE=true
+export VERBOSE=true
+python src/calculate_results.py
+
+# Method 2: Via .env
+echo "DEBUG_MODE=true" >> .env
+python src/calculate_results.py
+```
+
+### Getting Help
+
+1. **Check the Docs**:
+   - [METHODOLOGY.md](docs/METHODOLOGY.md) - Experiment process
+   - [ARCHITECTURE.md](docs/ARCHITECTURE.md) - System design
+   - [ANALYSIS.md](docs/ANALYSIS.md) - Detailed analysis
+
+2. **Review Examples**:
+   - See [Usage Instructions](#usage-instructions) section above
+   - Check `docs/experiments_input.json` for format
+
+3. **Run Tests**:
+   ```bash
+   pytest tests/ -v
+   # Verify everything works
+   ```
+
+4. **Check Logs**:
+   ```bash
+   tail -f logs/translation_agents.log
+   ```
+
+---
+
+## 📋 Development & Contributing
+
+### For Developers
+
+Want to contribute or extend the system?
+
+1. **Setup Development Environment**:
+   ```bash
+   pip install -r requirements.txt
+   pip install pytest pytest-cov
+   ```
+
+2. **Run Tests**:
+   ```bash
+   pytest tests/ --cov=src --cov-report=html
+   ```
+
+3. **Code Standards**:
+   - Follow PEP 8
+   - Add docstrings to all functions
+   - Type hints for function signatures
+   - Keep files under 150 lines
+
+4. **Submit Changes**:
+   - See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for detailed guidelines
+   - Ensure tests pass
+   - Update documentation
+
+### Project Architecture
+
+- **src/config.py** - Configuration management
+- **src/embeddings.py** - Embedding calculations
+- **src/calculator.py** - Distance metrics
+- **src/visualization.py** - Graph generation
+- **src/utils.py** - Utility functions
+- **tests/** - Unit test suite
+
+For detailed architecture: [ARCHITECTURE.md](docs/ARCHITECTURE.md)
+
+### Adding New Features
+
+Examples:
+- [Adding a new embedding model](docs/CONTRIBUTING.md#adding-a-new-embedding-model)
+- [Adding a new agent](docs/CONTRIBUTING.md#adding-a-new-agent)
+- [Adding new metrics](docs/CONTRIBUTING.md#adding-features)
+
+---
+
+## 📊 Detailed Documentation
+
+This README provides a quick overview. For comprehensive information:
+
+| Document | Purpose |
+|----------|---------|
+| [PRD.md](docs/PRD.md) | Complete product requirements and specifications |
+| [METHODOLOGY.md](docs/METHODOLOGY.md) | Experimental design and execution process |
+| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | System architecture and design decisions |
+| [ANALYSIS.md](docs/ANALYSIS.md) | Mathematical formulas and statistical analysis |
+| [CONTRIBUTING.md](docs/CONTRIBUTING.md) | Contributing guidelines for developers |
+| Agent files | [Agent A](docs/agent_a_english_to_french.md), [Agent B](docs/agent_b_french_to_hebrew.md), [Agent C](docs/agent_c_hebrew_to_english.md) |
+| [experiment_data.md](docs/experiment_data.md) | Detailed results and findings |
 
 ---
 
