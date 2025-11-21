@@ -16,18 +16,46 @@ The system tests robustness to spelling errors across six error rates: 0%, 10%, 
 ```
 llm-translation-agents-pipeline/
 ├── docs/
-│   ├── METHODOLOGY.md                     # Experimental setup and process documentation
-│   ├── agent_a_english_to_french.md       # Agent A skills and system prompt
-│   ├── agent_b_french_to_hebrew.md        # Agent B skills and system prompt
-│   ├── agent_c_hebrew_to_english.md       # Agent C skills and system prompt
-│   ├── experiment_data.md                 # Detailed experimental data and results
-│   ├── experiment_results.json            # Results in machine-readable format
-│   └── experiments_input.json             # Input experiments configuration
+│   ├── ARCHITECTURE.md
+│   ├── COST_ANALYSIS.md
+│   ├── METHODOLOGY.md
+│   ├── PRD.md
+│   ├── PROMPT_LOG.md
+│   ├── QUALITY.md
+│   ├── agent_a_english_to_french.md
+│   ├── agent_b_french_to_hebrew.md
+│   ├── agent_c_hebrew_to_english.md
+│   ├── analysis.ipynb
+│   ├── experiment_data.md
+│   ├── experiment_results.json
+│   └── experiments_input.json
 ├── src/
-│   └── calculate_results.py               # Results calculator with embeddings and analysis
+│   ├── calculate_results.py
+│   ├── cli.py
+│   ├── data_processor.py
+│   ├── embedding_calculator.py
+│   ├── statistics.py
+│   └── visualization.py
+├── tests/
+│   ├── __init__.py
+│   ├── test_calculate_results.py
+│   ├── test_cli.py
+│   ├── test_data_processor.py
+│   ├── test_embedding_calculator.py
+│   ├── test_statistics.py
+│   └── test_visualization.py
+├── results/
+│   └── graphs/
+│       ├── comparison_table.png
+│       ├── detailed_analysis.png
+│       └── error_vs_distance.png
 ├── screenshots/
-│   └── translation_distance_graph.png     # Visualization of results
-└── README.md                              # This file
+│   └── translation_distance_graph.png
+├── .gitignore
+├── .env.example
+├── LICENSE
+├── requirements.txt
+└── README.md
 ```
 
 ---
