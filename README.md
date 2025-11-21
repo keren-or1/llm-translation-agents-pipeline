@@ -435,6 +435,20 @@ EMBEDDING_MODEL                 SentenceTransformer model name
 
 ---
 
+## 💰 Cost Analysis
+
+For detailed cost analysis, token estimates, budget management, and scaling projections:
+
+👉 **See**: [💰 COST_ANALYSIS.md](docs/COST_ANALYSIS.md)
+
+**Quick Summary**:
+- **Current implementation cost**: ~$0.12 (total project with API usage)
+- **Per-translation cost**: ~$0.002 (production estimate)
+- **Scaling**: Linear cost growth, 98% gross margin potential
+- **Token efficiency**: 300-600 tokens per 3-stage translation
+
+---
+
 ## 📚 References
 
 ### Embedding Model
@@ -475,6 +489,16 @@ This project successfully demonstrates:
 4. **Quantitative evaluation** using vector embeddings and cosine distance
 
 The three-agent translation system proves that modern LLMs can effectively handle error-prone input while maintaining semantic integrity, opening possibilities for robust natural language processing applications.
+
+---
+
+## 📄 License
+
+This project is open-source software released under the **MIT License**.
+
+You are free to use, modify, and distribute this software for academic, research, or commercial purposes. See the [LICENSE](LICENSE) file for full terms.
+
+**Open Source Contribution**: This project is designed for community reuse and contribution. Contributions, improvements, and derivative works are welcome.
 
 ---
 
