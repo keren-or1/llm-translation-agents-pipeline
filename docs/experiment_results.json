@@ -1,0 +1,44 @@
+[
+  {
+    "error_percentage": 0,
+    "original_english": "The advanced artificial intelligence system successfully translates complex linguistic patterns across multiple languages with remarkable accuracy and precision.",
+    "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models into multiple languages with exceptional accuracy and precision.",
+    "cosine_distance": 0.09835159778594971,
+    "cosine_similarity": 0.9016484022140503
+  },
+  {
+    "error_percentage": 10,
+    "original_english": "The advansed artificial inteligence system sucessfully translates complex linguistic patterns across multiple languages with remarkable accuracy and precision.",
+    "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models into multiple languages with exceptional accuracy and precision.",
+    "cosine_distance": 0.2557041645050049,
+    "cosine_similarity": 0.7442958354949951
+  },
+  {
+    "error_percentage": 20,
+    "original_english": "The advansed artificial inteligence sistem sucessfully translates complex lingustic patterns across multiple languages with remarkable accuracy and precision.",
+    "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models into multiple languages with exceptional accuracy and precision.",
+    "cosine_distance": 0.33417534828186035,
+    "cosine_similarity": 0.6658246517181396
+  },
+  {
+    "error_percentage": 30,
+    "original_english": "The advansed artificial inteligence sistem sucessfully translates complex lingustic patterns across multiple langages with remarkble accuracy and precision.",
+    "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models in multiple languages with exceptional accuracy and precision.",
+    "cosine_distance": 0.34988951683044434,
+    "cosine_similarity": 0.6501104831695557
+  },
+  {
+    "error_percentage": 40,
+    "original_english": "The advansed articial inteligence sistem sucessfully transltes complex lingustic patterns acros multiple langages with remarkble accuracy and presicion.",
+    "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models across multiple languages with exceptional accuracy and reliability.",
+    "cosine_distance": 0.48396992683410645,
+    "cosine_similarity": 0.5160300731658936
+  },
+  {
+    "error_percentage": 50,
+    "original_english": "The advansed articial inteligence sistem sucsessfully transltes complx lingustic patters acros multple langages with remarkble acuracy and presicion.",
+    "final_english": "The advanced artificial intelligence system successfully translates complex linguistic models between multiple languages with exceptional accuracy and reliability.",
+    "cosine_distance": 0.5554450750350952,
+    "cosine_similarity": 0.4445549249649048
+  }
+]
