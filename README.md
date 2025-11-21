@@ -1,4 +1,4 @@
-# Translation Agent System - Complete Assignment Submission
+# Translation Agent System - Assignment Submission
 
 ## 📋 Project Overview
 
@@ -21,7 +21,8 @@ llm-translation-agents-pipeline/
 │   ├── agent_b_french_to_hebrew.md        # Agent B skills and system prompt
 │   ├── agent_c_hebrew_to_english.md       # Agent C skills and system prompt
 │   ├── experiment_data.md                 # Detailed experimental data and results
-│   └── experiment_results.json            # Results in machine-readable format
+│   ├── experiment_results.json            # Results in machine-readable format
+│   └── experiments_input.json             # Input experiments configuration
 ├── src/
 │   └── calculate_results.py               # Results calculator with embeddings and analysis
 ├── screenshots/
@@ -31,24 +32,24 @@ llm-translation-agents-pipeline/
 
 ---
 
-## 🚀 Recent Improvements
+## 🚀 Implementation Features
 
-This project has been enhanced with:
+The system includes the following features:
 
-✅ **Input File Support** - Load experiments from `docs/experiments_input.json`
-✅ **CLI Arguments** - Flexible command-line configuration (`--input`, `--output`, `--cache-dir`)
-✅ **Embedding Caching** - Automatic caching of embeddings to speed up re-runs
-✅ **Agent CLI Integration** - Use `/agents` feature for cleaner agent invocation
-✅ **Backward Compatibility** - Works with hardcoded defaults if no input file specified
+- **Input File Support** - Load experiments from structured JSON input files
+- **CLI Arguments** - Flexible command-line configuration for customization
+- **Embedding Caching** - Automatic caching of embeddings for efficient re-runs
+- **Agent CLI Integration** - Uses Claude Code `/agents` feature for agent invocation
+- **Backward Compatibility** - Works with default hardcoded data if no input file specified
 
-See implementation details in [📋 METHODOLOGY.md](docs/METHODOLOGY.md#10-improvements-implemented--future-roadmap)
+See implementation details in [📋 METHODOLOGY.md](docs/METHODOLOGY.md)
 
 ---
 
 ## 📖 Experimental Setup & Methodology
 
 For detailed information about how the experiments were conducted, including:
-- Agent invocation process (`/agents` CLI recommended)
+- Agent invocation process using `/agents` CLI
 - Data collection workflow
 - Embeddings calculation with caching
 - Reproducibility guide
@@ -185,7 +186,7 @@ The system demonstrates that LLM translation pipelines can reliably handle noisy
 
 #### [📄 src/calculate_results.py](src/calculate_results.py) - Main Results Calculator
 - Loads sentence embeddings model (all-MiniLM-L6-v2)
-- Processes 6 experiments in parallel
+- Processes experiments from input file or defaults
 - Calculates cosine distances and similarities
 - Generates visualization graph
 - Produces JSON output with full details
@@ -194,28 +195,29 @@ The system demonstrates that LLM translation pipelines can reliably handle noisy
 **Usage**:
 ```bash
 python3 src/calculate_results.py
+python3 src/calculate_results.py --input docs/experiments_input.json
+python3 src/calculate_results.py --input exp.json --output results.json --cache-dir .cache
 ```
 
 **Output**:
 - Console: Detailed results table and analysis
-- [`data/experiment_results.json`](data/experiment_results.json): Machine-readable results
+- [`docs/experiment_results.json`](docs/experiment_results.json): Machine-readable results
 - [`screenshots/translation_distance_graph.png`](screenshots/translation_distance_graph.png): Visualization
 
-### Agent Invocation (CLI)
+### Agent Invocation via CLI
 
-**Standard invocation using Claude Code agents feature**:
+Use Claude Code's `/agents` CLI feature:
+
 ```bash
 # Agent A: English to French
-/agents agent_a_english_to_french --input "Text with errors"
+/agents agent_a_english_to_french --input "The advansed artificial inteligence..."
 
 # Agent B: French to Hebrew
-/agents agent_b_french_to_hebrew --input "French text"
+/agents agent_b_french_to_hebrew --input "[French output from Agent A]"
 
 # Agent C: Hebrew to English
-/agents agent_c_hebrew_to_english --input "Hebrew text"
+/agents agent_c_hebrew_to_english --input "[Hebrew output from Agent B]"
 ```
-
-Alternatively, use Task-based invocation as demonstrated in the experiment runs.
 
 ---
 
@@ -255,7 +257,7 @@ Alternatively, use Task-based invocation as demonstrated in the experiment runs.
 ### ✅ Agent Requirements
 - Three agents in sequential chain: ✓
 - System prompts with skills: ✓ (in separate markdown files)
-- CLI-based execution only: ✓ (no Python agent execution)
+- CLI-based execution: ✓ (using `/agents` feature)
 - Python for embeddings only: ✓
 
 ### ✅ Processing Requirements
@@ -329,7 +331,7 @@ cd llm-translation-agents-pipeline
 # Install dependencies
 pip install sentence-transformers scikit-learn matplotlib pandas numpy
 
-# Execute results calculator (uses hardcoded defaults)
+# Execute results calculator
 python3 src/calculate_results.py
 ```
 
@@ -359,47 +361,17 @@ cat docs/experiment_results.json
 
 # View graph
 open screenshots/translation_distance_graph.png  # macOS
-# or use your preferred image viewer
 ```
 
 ### Available CLI Arguments
 ```
---input FILE, -i FILE           Path to JSON experiments file (uses hardcoded if not specified)
+--input FILE, -i FILE           Path to JSON experiments file
 --output FILE, -o FILE          Output JSON file (default: docs/experiment_results.json)
 --graph-output FILE, -g FILE    Output graph image (default: screenshots/translation_distance_graph.png)
 --cache-dir DIR, -c DIR         Cache directory for embeddings (default: .cache)
 --clear-cache                   Clear cache before running
 --help, -h                      Show help message
 ```
-
-### Using Agents (CLI) - Recommended Approach
-
-Use Claude Code's `/agents` CLI feature with the provided skill definitions:
-
-```bash
-# Agent A: English to French
-/agents agent_a_english_to_french --input "The advansed artificial inteligence..."
-
-# Agent B: French to Hebrew
-/agents agent_b_french_to_hebrew --input "[output from Agent A]"
-
-# Agent C: Hebrew to English
-/agents agent_c_hebrew_to_english --input "[output from Agent B]"
-```
-
-**Agent Documentation**:
-- [📄 Agent A (English→French)](docs/agent_a_english_to_french.md)
-- [📄 Agent B (French→Hebrew)](docs/agent_b_french_to_hebrew.md)
-- [📄 Agent C (Hebrew→English)](docs/agent_c_hebrew_to_english.md)
-
-**Note**: Each agent includes detailed skills and system prompts optimized for translation tasks and spelling error robustness.
-
-### Analyzing Results
-Open [📋 docs/experiment_data.md](docs/experiment_data.md) for:
-- Complete experimental data
-- Statistical analysis
-- Findings and conclusions
-- Quality checklist
 
 ---
 
@@ -439,7 +411,6 @@ The three-agent translation system proves that modern LLMs can effectively handl
 
 ---
 
-**Completion Date**: November 14, 2025
-**Total Deliverables**: 9 files
+**Status**: Complete
+**Total Deliverables**: 9 core files
 **Experiments Completed**: 6 (0%, 10%, 20%, 30%, 40%, 50% error rates)
-**Status**: ✅ Complete
