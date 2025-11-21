@@ -321,6 +321,36 @@ The three-agent system successfully simulates sequential processing with:
 
 ## 🚀 Usage Instructions
 
+### Configuration
+
+The system supports configuration via environment variables for better flexibility and to avoid hardcoded constants.
+
+#### Environment Variable Configuration
+
+1. **Copy the example configuration file**:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Edit `.env` to customize settings** (optional):
+   ```bash
+   # Embedding Model Configuration
+   EMBEDDING_MODEL=all-MiniLM-L6-v2
+   CACHE_DIR=.cache
+
+   # Input/Output Paths
+   EXPERIMENTS_INPUT_FILE=docs/experiments_input.json
+   RESULTS_OUTPUT_FILE=docs/experiment_results.json
+   GRAPH_OUTPUT_FILE=screenshots/translation_distance_graph.png
+   ```
+
+3. **Configuration Priority** (highest to lowest):
+   - Command-line arguments (e.g., `--cache-dir .mycache`)
+   - Environment variables from `.env` file
+   - Default values (hardcoded fallbacks)
+
+**Note**: CLI arguments always take precedence over environment variables. This allows temporary overrides without modifying the `.env` file.
+
 ### Running the Complete Experiment
 
 #### Option 1: Using Defaults
@@ -329,18 +359,28 @@ The three-agent system successfully simulates sequential processing with:
 cd llm-translation-agents-pipeline
 
 # Install dependencies
-pip install sentence-transformers scikit-learn matplotlib pandas numpy
+pip install sentence-transformers scikit-learn matplotlib pandas numpy python-dotenv
 
 # Execute results calculator
 python3 src/calculate_results.py
 ```
 
-#### Option 2: Using Input File (Recommended)
+#### Option 2: Using Environment Variables
+```bash
+# Configure via .env file (see Configuration section above)
+cp .env.example .env
+# Edit .env to set EXPERIMENTS_INPUT_FILE and other paths
+
+# Run with environment-based configuration
+python3 src/calculate_results.py
+```
+
+#### Option 3: Using CLI Arguments (Overrides .env)
 ```bash
 # Load experiments from JSON input file
 python3 src/calculate_results.py --input docs/experiments_input.json
 
-# Or with custom output paths
+# Or with custom output paths (overrides environment variables)
 python3 src/calculate_results.py \
   --input docs/experiments_input.json \
   --output results/my_results.json \
@@ -348,7 +388,7 @@ python3 src/calculate_results.py \
   --cache-dir .embeddings_cache
 ```
 
-#### Option 3: Clear Cache and Recalculate
+#### Option 4: Clear Cache and Recalculate
 ```bash
 # Clear embedding cache and recalculate from scratch
 python3 src/calculate_results.py --input docs/experiments_input.json --clear-cache
@@ -364,13 +404,33 @@ open screenshots/translation_distance_graph.png  # macOS
 ```
 
 ### Available CLI Arguments
+
+All CLI arguments support corresponding environment variables. CLI arguments take precedence.
+
 ```
 --input FILE, -i FILE           Path to JSON experiments file
---output FILE, -o FILE          Output JSON file (default: docs/experiment_results.json)
---graph-output FILE, -g FILE    Output graph image (default: screenshots/translation_distance_graph.png)
---cache-dir DIR, -c DIR         Cache directory for embeddings (default: .cache)
+                                Env var: EXPERIMENTS_INPUT_FILE
+
+--output FILE, -o FILE          Output JSON file
+                                Env var: RESULTS_OUTPUT_FILE
+                                Default: docs/experiment_results.json
+
+--graph-output FILE, -g FILE    Output graph image
+                                Env var: GRAPH_OUTPUT_FILE
+                                Default: screenshots/translation_distance_graph.png
+
+--cache-dir DIR, -c DIR         Cache directory for embeddings
+                                Env var: CACHE_DIR
+                                Default: .cache
+
 --clear-cache                   Clear cache before running
 --help, -h                      Show help message
+```
+
+**Additional Environment Variables** (for embedding calculator):
+```
+EMBEDDING_MODEL                 SentenceTransformer model name
+                                Default: all-MiniLM-L6-v2
 ```
 
 ---
@@ -385,16 +445,23 @@ open screenshots/translation_distance_graph.png  # macOS
 
 ### Dependencies
 ```
-sentence-transformers
-scikit-learn
-matplotlib
-pandas
-numpy
+sentence-transformers>=2.2.0
+scikit-learn>=1.0.0
+matplotlib>=3.4.0
+pandas>=1.3.0
+numpy>=1.21.0
+python-dotenv>=0.19.0    # For environment variable management
+pytest>=7.0.0            # For testing
+pytest-cov>=3.0.0        # For test coverage
 ```
 
 ### Installation
 ```bash
-pip install sentence-transformers scikit-learn matplotlib pandas numpy
+# Install from requirements.txt (recommended)
+pip install -r requirements.txt
+
+# Or install manually
+pip install sentence-transformers scikit-learn matplotlib pandas numpy python-dotenv
 ```
 
 ---

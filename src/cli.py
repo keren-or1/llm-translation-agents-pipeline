@@ -4,7 +4,12 @@ CLI Module
 Handles command-line argument parsing and configuration
 """
 
+import os
 import argparse
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 
 def parse_arguments():
@@ -30,14 +35,20 @@ Examples:
         """
     )
 
-    parser.add_argument('--input', '-i', type=str, default=None,
-                        help='Path to JSON file containing experiments (default: use hardcoded data)')
-    parser.add_argument('--output', '-o', type=str, default='docs/experiment_results.json',
-                        help='Path to output JSON file (default: docs/experiment_results.json)')
-    parser.add_argument('--graph-output', '-g', type=str, default='screenshots/translation_distance_graph.png',
-                        help='Path to output graph image (default: screenshots/translation_distance_graph.png)')
-    parser.add_argument('--cache-dir', '-c', type=str, default='.cache',
-                        help='Directory for caching embeddings (default: .cache)')
+    # Get defaults from environment variables with fallbacks
+    default_input = os.getenv('EXPERIMENTS_INPUT_FILE')
+    default_output = os.getenv('RESULTS_OUTPUT_FILE', 'docs/experiment_results.json')
+    default_graph = os.getenv('GRAPH_OUTPUT_FILE', 'screenshots/translation_distance_graph.png')
+    default_cache = os.getenv('CACHE_DIR', '.cache')
+
+    parser.add_argument('--input', '-i', type=str, default=default_input,
+                        help=f'Path to JSON file containing experiments (default: {default_input or "use hardcoded data"})')
+    parser.add_argument('--output', '-o', type=str, default=default_output,
+                        help=f'Path to output JSON file (default: {default_output})')
+    parser.add_argument('--graph-output', '-g', type=str, default=default_graph,
+                        help=f'Path to output graph image (default: {default_graph})')
+    parser.add_argument('--cache-dir', '-c', type=str, default=default_cache,
+                        help=f'Directory for caching embeddings (default: {default_cache})')
     parser.add_argument('--clear-cache', action='store_true',
                         help='Clear cache before running')
 

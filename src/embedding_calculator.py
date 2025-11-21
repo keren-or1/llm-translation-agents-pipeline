@@ -4,12 +4,17 @@ Embedding Calculator Module
 Handles sentence embedding computation and caching operations
 """
 
+import os
 import numpy as np
 import hashlib
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_distances
 from typing import Tuple
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 
 class EmbeddingCalculator:
@@ -24,14 +29,21 @@ class EmbeddingCalculator:
         cache_dir (Path): Directory path for storing cached embeddings
     """
 
-    def __init__(self, model_name: str = "all-MiniLM-L6-v2", cache_dir: str = ".cache"):
+    def __init__(self, model_name: str = None, cache_dir: str = None):
         """
         Initialize the embedding calculator with specified model and cache directory.
 
         Args:
             model_name (str): Name of the SentenceTransformer model to use
+                             Defaults to EMBEDDING_MODEL env var or "all-MiniLM-L6-v2"
             cache_dir (str): Directory path for caching computed embeddings
+                            Defaults to CACHE_DIR env var or ".cache"
         """
+        # Use environment variables with fallback defaults
+        if model_name is None:
+            model_name = os.getenv('EMBEDDING_MODEL', 'all-MiniLM-L6-v2')
+        if cache_dir is None:
+            cache_dir = os.getenv('CACHE_DIR', '.cache')
         self.cache_dir = Path(cache_dir)
         self.cache_dir.mkdir(exist_ok=True)
 
