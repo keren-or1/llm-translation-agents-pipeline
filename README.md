@@ -44,11 +44,6 @@ llm-translation-agents-pipeline/
 │   ├── test_embedding_calculator.py
 │   ├── test_statistics.py
 │   └── test_visualization.py
-├── results/
-│   └── graphs/
-│       ├── comparison_table.png
-│       ├── detailed_analysis.png
-│       └── error_vs_distance.png
 ├── screenshots/
 │   └── translation_distance_graph.png
 ├── .gitignore
